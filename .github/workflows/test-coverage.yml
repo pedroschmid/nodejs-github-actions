@@ -10,9 +10,22 @@ jobs:
   test-coverage:
     runs-on: ubuntu-latest
     steps:
-    - uses: devmasx/coverage-check-action@v1.2.0
-      with:
-        type: simplecov
-        result_path: coverage/coverage-final.json
-        min_coverage: 90
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Git checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test coverage
+        uses: devmasx/coverage-check-action@v1.2.0
+        with:
+          type: simplecov
+          result_path: coverage/coverage-final.json
+          min_coverage: 90
+          token: ${{ secrets.GITHUB_TOKEN }}
