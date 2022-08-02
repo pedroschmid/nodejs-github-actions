@@ -11,11 +11,6 @@
     "request-promise": "^4.2.6"
   },
   "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "json",
-      "lcov",
-      "text"
-    ]
+    "collectCoverage": true
   }
 }

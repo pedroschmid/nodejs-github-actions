@@ -25,10 +25,10 @@ jobs:
       - name: Run unit tests
         run: npm run coverage
 
-      - name: Test coverage
-        uses: devmasx/coverage-check-action@v1.2.0
+      - name: Report code coverage
+        uses: zgosalvez/github-actions-report-lcov@v1
         with:
-          type: simplecov
-          result_path: coverage/coverage-final.json
-          min_coverage: 90
-          token: ${{ secrets.GITHUB_TOKEN }}
+          coverage-files: coverage/lcov.*.info
+          minimum-coverage: 90
+          artifact-name: code-coverage-report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
