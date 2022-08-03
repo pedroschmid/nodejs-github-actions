@@ -2,7 +2,7 @@ const { add, subtract, multiply } = require('../src/calculator');
 
 test('Adding two numbers', (done) => {
     expect(add(5, 5)).toStrictEqual(10)
-    expect(add(100, 200)).toStrictEqual(300)
+    expect(add(101, 200)).toStrictEqual(300)
     done()
 })
 
